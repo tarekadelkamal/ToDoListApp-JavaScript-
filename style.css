@@ -1,0 +1,59 @@
+*{
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #352f5b;
+    color: #fff;
+}
+
+h1{
+    text-align: center;
+    font-size: 4rem;
+    margin-top: 50px;
+}
+
+.task{
+    
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 70vw;
+    margin-right :auto;
+    margin-left :auto;
+    padding: 10px 20px ;
+    display: flex;
+    justify-content: space-between;
+
+background: rgba( 172, 214, 221, 0.25 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 4px );
+-webkit-backdrop-filter: blur( 0px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+border-bottom: 2px solid #fff;
+}
+.task .icon{
+    font-size: 24px;
+} 
+ 
+.task .icon-trash , .task .icon-star{
+    opacity: 0.4;
+}
+.task .icon-trash{
+    margin-right: 15px;
+}
+.task .icon:hover{
+    font-size: 26px;
+    transition: 0.4s;
+    cursor: pointer;
+}
+.task .icon-star:hover{
+    opacity: 1;
+    color: orange;
+}
+
+.task .icon-trash:hover{
+    opacity: 1;
+    /* color: orange; */
+}
