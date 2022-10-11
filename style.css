@@ -53,12 +53,17 @@ border-bottom: 2px solid #fff;
     opacity: 1;
     color: orange;
 }
+.task .stared{
+    opacity: 1;
+    color: orange;
+}
 
 .task .icon-trash:hover{
     opacity: 1;
-    /* color: orange; */
 }
-
+.task .icon-trashed{
+    opacity: 1;
+}
 h2{
     margin-top: 3em;
     margin-bottom: 40px;
