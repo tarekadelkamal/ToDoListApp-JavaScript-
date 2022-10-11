@@ -2,7 +2,8 @@ let button = document.querySelector(".icon-upload"),
     inputsValue = document.querySelector("[name='task']"),
     allTasksElement = document.querySelector("#allTasks"),
     starElement = document.querySelector(".icon-star");
-    
+     
+   
     
    
 //let taskCounter = 0 ;
@@ -16,17 +17,20 @@ let storeData = (value) => { taskCounterFun(); localStorage.setItem(`task ${task
 for(let i=taskCounter; i <= taskCounter ; --i){
     if(i == 0 ) {break;}
    let allTasks = getData(i);
+   if(allTasks !== null){
     allTasksElement.innerHTML +=`
     <div class="task" id="${i}">
           <span class="icon-star icon ${allTasks.star == true ? 'stared' : '' }"></span>
           <p>${allTasks.task}</p>
           <div>
-              <span class="icon-trash icon" data-id=${i}></span>
+              <span class="icon-trash icon" onclick=deleteTask(${i})></span>
               <span class="icon-angry icon"></span>
           </div>
       </div>`;
-      
+   } 
 }
+
+let deleteTask = (value) => {localStorage.removeItem('task '+value);  location.reload();}
 
 button.addEventListener('click', function (event){
     event.preventDefault();
@@ -36,3 +40,4 @@ button.addEventListener('click', function (event){
       
 }); 
 
+console.log(trashElement.length);
