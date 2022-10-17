@@ -11,7 +11,8 @@ localStorage.getItem('tasksCounter') ? taskCounter = localStorage.getItem('tasks
 
 let taskCounterFun = _=> localStorage.setItem('tasksCounter', ++taskCounter);
 let storeData = (value) => { taskCounterFun(); localStorage.setItem(`task ${taskCounter}`, value); } ,
-    getData = (value) => { let taskName = `task ${value}`; return JSON.parse(localStorage.getItem(taskName));};
+    getData = (value) => { let taskName = `task ${value}`; return JSON.parse(localStorage.getItem(taskName));},
+    updateData = (taskNum, value) => { localStorage.setItem(`task ${taskNum}`, value); };
 
     
 for(let i=taskCounter; i <= taskCounter ; --i){
@@ -20,7 +21,7 @@ for(let i=taskCounter; i <= taskCounter ; --i){
    if(allTasks !== null){
     allTasksElement.innerHTML +=`
     <div class="task" id="${i}">
-          <span class="icon-star icon ${allTasks.star == true ? 'stared' : '' }"></span>
+          <span class="icon-star icon  ${allTasks.star == true ? 'stared' : '' }" onclick=starTask(${i})></span>
           <p>${allTasks.task}</p>
           <div>
               <span class="icon-trash icon" onclick=deleteTask(${i})></span>
@@ -31,6 +32,14 @@ for(let i=taskCounter; i <= taskCounter ; --i){
 }
 
 let deleteTask = (value) => {localStorage.removeItem('task '+value);  location.reload();}
+let starTask = (value) => { 
+      let dataResult = getData(value);
+      let updatedStar  = dataResult.star == false ? true : false  ;
+      let updatedData = JSON.stringify({task: dataResult.task, done: dataResult.done, star: updatedStar}) ;
+      updateData(value,updatedData);
+      location.reload();  
+    };
+
 
 button.addEventListener('click', function (event){
     event.preventDefault();
@@ -40,4 +49,4 @@ button.addEventListener('click', function (event){
       
 }); 
 
-console.log(trashElement.length);
+ 
